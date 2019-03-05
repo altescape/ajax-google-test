@@ -31,14 +31,11 @@
         $('#remote-content-header')
         .html(menu)
         .append(navBottom);
+        console.log('completed navigation html download');
       });
 
       htmlRequest.fail((jqXHR, textStatus) => {
         console.error(`Error: ${textStatus}`);
-      });
-
-      htmlRequest.always(() => {
-        console.log('completed navigation html download');
       });
     </script>
 

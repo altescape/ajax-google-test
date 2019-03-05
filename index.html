@@ -28,14 +28,11 @@
 
       cssRequest.done(response => {
         $('#navigation-style').html(response);
+        console.log('completed navigation css download');
       });
 
       cssRequest.fail((jqXHR, textStatus) => {
         console.error(`Error: ${textStatus}`);
-      });
-
-      cssRequest.always(() => {
-        console.log('completed navigation css download');
       });
 
       const htmlRequest = $.ajax({
@@ -51,14 +48,11 @@
         $('#remote-content-header')
         .html(menu)
         .append(navBottom);
+        console.log('completed navigation html download');
       });
 
       htmlRequest.fail((jqXHR, textStatus) => {
         console.error(`Error: ${textStatus}`);
-      });
-
-      htmlRequest.always(() => {
-        console.log('completed navigation html download');
       });
     </script>
 
