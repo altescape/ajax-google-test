@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ajx test</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+
+    <h1>Hello</h1>
+
+    <h2>
+      Subtitle here, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </h2>
+
+    <style id="navigation-style" type="text/css"></style>
+    <div id="remote-content-header"></div>
+    <script>
+      const htmlUrl = 'http://onestopgrowshop-content.s3-website.eu-west-2.amazonaws.com/header/';
+
+      const htmlRequest = $.ajax({
+        url: htmlUrl,
+        crossDomain: true,
+        dataType: 'html',
+        cache: true
+      });
+
+      htmlRequest.done(response => {
+        const menu = $(response).find('#menu');
+        const navBottom = $(response).find('#nav-bottom');
+        $('#remote-content-header')
+        .html(menu)
+        .append(navBottom);
+      });
+
+      htmlRequest.fail((jqXHR, textStatus) => {
+        console.error(`Error: ${textStatus}`);
+      });
+
+      htmlRequest.always(() => {
+        console.log('completed navigation html download');
+      });
+    </script>
+
+  </body>
+</html>
