@@ -12,5 +12,5 @@ router.get('/nos', function(req, res) {
 })
 
 app.use('/', router)
-app.listen(process.env.port || 3030)
+app.listen(process.env.PORT || 3030)
 console.log('Example started')
