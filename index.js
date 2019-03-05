@@ -11,6 +11,7 @@ router.get('/nos', function(req, res) {
   res.sendFile(path.join(__dirname + '/index-no-style.html'))
 })
 
+app.use(express.static('public'))
 app.use('/', router)
 app.listen(process.env.PORT || 3030)
 console.log('Example started')

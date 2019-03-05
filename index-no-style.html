@@ -1,43 +1,60 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Ajx test</title>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title>Ajx test</title>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+</head>
+<body>
 
-    <h1>Hello</h1>
+  <h1>Hello</h1>
 
-    <h2>
-      Subtitle here, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </h2>
+  <h2>
+    Subtitle here, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </h2>
 
-    <style id="navigation-style" type="text/css"></style>
-    <div id="remote-content-header"></div>
-    <script>
-      const htmlUrl = '//s3.eu-west-2.amazonaws.com/onestopgrowshop-content/header/index.html';
+  <style id="navigation-style" type="text/css"></style>
+  <div id="remote-content-header"></div>
+  <script>
+  const htmlUrl = '//s3.eu-west-2.amazonaws.com/onestopgrowshop-content/header/index.html';
 
-      const htmlRequest = $.ajax({
-        url: htmlUrl,
-        crossDomain: true,
-        dataType: 'html',
-        cache: true
-      });
+  const htmlRequest = $.ajax({
+    url: htmlUrl,
+    crossDomain: true,
+    dataType: 'html',
+    cache: true
+  });
 
-      htmlRequest.done(response => {
-        const menu = $(response).find('#menu');
-        const navBottom = $(response).find('#nav-bottom');
-        $('#remote-content-header')
-        .html(menu)
-        .append(navBottom);
-        console.log('completed navigation html download');
-      });
+  htmlRequest.done(response => {
+    const menu = $(response).find('#menu');
+    const navBottom = $(response).find('#nav-bottom');
+    $('#remote-content-header')
+    .html(menu)
+    .append(navBottom);
+    console.log('completed navigation html download');
+  });
 
-      htmlRequest.fail((jqXHR, textStatus) => {
-        console.error(`Error: ${textStatus}`);
-      });
-    </script>
+  htmlRequest.fail((jqXHR, textStatus) => {
+    console.error(`Error: ${textStatus}`);
+  });
+  </script>
 
-  </body>
+</body>
 </html>
