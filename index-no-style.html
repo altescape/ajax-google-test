@@ -42,7 +42,7 @@
     cache: true
   });
 
-  htmlRequest.done(response => {
+  htmlRequest.done(function(response) {
     const menu = $(response).find('#menu');
     const navBottom = $(response).find('#nav-bottom');
     $('#remote-content-header')
@@ -51,7 +51,7 @@
     console.log('completed navigation html download');
   });
 
-  htmlRequest.fail((jqXHR, textStatus) => {
+  htmlRequest.fail(function(jqXHR, textStatus) {
     console.error(`Error: ${textStatus}`);
   });
   </script>
